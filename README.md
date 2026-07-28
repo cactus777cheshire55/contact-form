@@ -16,14 +16,35 @@ CONTACTS }o--o{ TAGS
 ![ER図](ER_picture.png)
 
 環境構築手順:
-1. Laravelプロジェクトの作成 (Laravel 10.x)
-2. Laravel Sailのインストール
-3. .env ファイルの設定
-4. phpMyAdminの追加
-5. Sailの起動とエイリアス設定
-6. アプリケーションキーの生成
-7. フロントエンドのセットアップ (Vite & Tailwind CSS)※sail npm install を実行する前に、必ずSailコンテナが起動している必要がある為。
-8. データベースのマイグレーションと初期データ投入
+git clone後,cp .env.example .env
+
+Laravel Sailのインストール
+
+docker run --rm
+-u "$(id -u):$(id -g)"
+-v "$(pwd):/var/www/html"
+-w /var/www/html
+-e COMPOSER_CACHE_DIR=/tmp/composer_cache
+laravelsail/php82-composer:latest
+composer require laravel/sail --dev
+
+Sailの設定ファイルをパブリッシュ（MySQLを選択） docker run --rm
+-u "$(id -u):$(id -g)"
+-v "$(pwd):/var/www/html"
+-w /var/www/html
+-e COMPOSER_CACHE_DIR=/tmp/composer_cache
+laravelsail/php82-composer:latest
+php artisan sail:install --with=mysql
+
+Sailの起動 sail up -d
+
+アプリケーションキーの生成 sail artisan key:generate
+
+データベースのマイグレーションと初期データ投入 sail artisan migrate:fresh --seed
+
+フロントエンドのセットアップ sail npm install sail npm install -D tailwindcss@^3.4.0 postcss autoprefixer sail npm install alpinejs
+
+Vite開発サーバーの起動 sail npm run dev
 使用技術:
 HTML+CSS+Javascript(bootstrap,tailwind,node)
 PHP,Laravel 10, MySQL 8.0, Nginx, Docker
