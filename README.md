@@ -53,6 +53,8 @@ sail npm install alpinejs
 Vite開発サーバーの起動 
 
 sail npm run dev
+
+
 使用技術:
 HTML+CSS+Javascript(bootstrap,tailwind,node)
 PHP,Laravel 10, MySQL 8.0, Nginx, Docker
