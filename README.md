@@ -42,9 +42,17 @@ Sailの起動 sail up -d
 
 データベースのマイグレーションと初期データ投入 sail artisan migrate:fresh --seed
 
-フロントエンドのセットアップ sail npm install sail npm install -D tailwindcss@^3.4.0 postcss autoprefixer sail npm install alpinejs
+フロントエンドのセットアップ 
 
-Vite開発サーバーの起動 sail npm run dev
+sail npm install 
+
+sail npm install -D tailwindcss@^3.4.0 postcss autoprefixer 
+
+sail npm install alpinejs
+
+Vite開発サーバーの起動 
+
+sail npm run dev
 使用技術:
 HTML+CSS+Javascript(bootstrap,tailwind,node)
 PHP,Laravel 10, MySQL 8.0, Nginx, Docker
